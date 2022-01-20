@@ -18,7 +18,7 @@ const SignUp = (props) => {
       
 
    const onSignIn=()=>{
-            navigation.navigate('SignIn');
+            navigation.navigate('PageMain');
         }
     return (
        <View style={styles.container}>
