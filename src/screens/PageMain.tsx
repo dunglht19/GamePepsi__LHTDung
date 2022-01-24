@@ -8,13 +8,32 @@ import {
   ImageBackground,
   TouchableOpacity,
   Image,
+  Alert,
+  Modal,
+  Pressable,
 } from "react-native";
-
+import { Icon } from '@iconify/react';
+import { Feather } from '@expo/vector-icons';
 
 
 
 const PageMain = (props) => {
      const { navigation } = props;
+     const [modalVisible, setModalVisible] = useState(false);
+     const createTwoButtonAlert = () =>
+    Alert.alert('Alert Title', 'My Alert Msg', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      { text: 'OK', onPress: () => console.log('OK Pressed') },
+    ]);
+
+    const onSignIn=()=>{
+            navigation.navigate('SignIn');
+        }
+          
       
 
   //  const onSignIn=()=>{
@@ -26,21 +45,59 @@ const PageMain = (props) => {
         source={require("../../assets/bg2.png")}
         resizeMode="cover"
         style={styles.image}
-      >       
-        <View style={styles.middle}>         
-         <Image style={styles.img} source={require("../../assets/daulan.png")}/>         
+      >
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Bạn có chắc muốn <Text style={{fontWeight:'bold'}}>đăng xuất</Text> không?</Text>
+           
+            <Pressable
+              style={[styles.button]}
+              onPress={onSignIn}>
+              <Text style={styles.textStyle}>Đăng xuất</Text>
+            </Pressable>
+
+            <TouchableOpacity
+             
+              onPress={() => setModalVisible(!modalVisible)}>
+              <ImageBackground
+              source={require("../../assets/white_button1.png")}
+              resizeMode="cover" style={{justifyContent: "center",
+    width: 130,
+    height:50}}
+              >           
+              <Text style={{color:'#0063A7',fontWeight:'bold',textAlign:'center',marginBottom:7}}>Hủy</Text>
+            </ImageBackground>              
+            </TouchableOpacity>            
+          </View>
+        </View>
+      </Modal> 
+      <Feather style={{position:"absolute",top:30,right:30}} name="log-out" size={20} color="white" onPress={() => setModalVisible(true)}/>      
+        <View style={styles.top}>
+       
+         {/* <Icon style={{position:"absolute",right:10,top:-40,}} icon="mono-icons:log-out"  width="20" height="20" color="white" inline={true} />          */}
+
+         
+         <Image style={styles.img}   source={require("../../assets/daulan.png")}/>         
          
         </View>
 
         <View style={styles.bottom}>
-        <Text style={{color:'#FFDD00',fontSize:17,fontWeight:'bold',marginBottom:5,}}>Hướng Dẫn</Text>
+        <Text onPress={createTwoButtonAlert} style={{color:'#FFDD00',fontSize:17,fontWeight:'bold',marginBottom:5,textAlign:"center"}}>Hướng Dẫn</Text>
         <TouchableOpacity style={styles.touchable}>
             <ImageBackground
                source={require("../../assets/button3.png")}
               resizeMode="cover"
               style={styles.imageButton1}>            
               <Text style={styles.title}>Chơi ngay</Text>
-              <Text style={styles.intitle}>Bạn có tổng cộng <Text style={{color:'yellow'}}>8</Text> lượt chơi</Text> 
+              <Text style={styles.intitle}>Bạn có tổng cộng <Text style={{color:'yellow'}}>0</Text> lượt chơi</Text> 
             </ImageBackground>
           </TouchableOpacity>
           <TouchableOpacity style={styles.touchable}>         
@@ -51,12 +108,12 @@ const PageMain = (props) => {
               <Text style={styles.title2}>Quét mã</Text>
             </ImageBackground>
           </TouchableOpacity>      
-          <TouchableOpacity style={styles.touchable}>         
+          <TouchableOpacity style={styles.touchable} >         
             <ImageBackground
               source={require("../../assets/button2.png")}
               resizeMode="cover"
               style={styles.imageButton}>             
-              <Text style={styles.title2}>Bộ sưu tập</Text>
+              <Text style={styles.title2} >Bộ sưu tập</Text>
             </ImageBackground>
           </TouchableOpacity>
           <TouchableOpacity style={styles.touchable}>         
@@ -86,7 +143,7 @@ const styles = StyleSheet.create({
   },
   
 
-  middle: {
+  top: {
     flex: 0.4,
     justifyContent: "center",
     // borderWidth: 3,
@@ -108,6 +165,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     backgroundColor: "white",
+    
     
   },
 
@@ -154,8 +212,65 @@ touchable: {
   img: {
     width: 180,
     height: 180,
-    marginLeft: 70,
-    // borderWidth: 5,
+    // marginLeft: 70,
+    marginLeft: 90,
+    // marginTop:50,
+    borderWidth: 5,
     
-    }
+    },
+ 
+  
+
+
+
+
+centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',    
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: '#FBC926',
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    // borderWidth: 5,
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+   
+  },
+  button: {
+    borderRadius: 10,
+    padding: 10,
+    width: 110,
+    elevation: 2,
+    marginBottom:10,
+    backgroundColor:'#D02027',
+    
+  },  
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    
+  },
+  modalText: {
+    marginBottom: 15,
+    // borderWidth:1,
+    width: 181,
+    color:'#0063A7',
+    fontSize:17,
+     textAlign:'center'
+    
+  },
+
 })
