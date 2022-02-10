@@ -15,12 +15,12 @@ const SignIn = (props) => {
       <ImageBackground source={require("../../assets/bg.png")} resizeMode="cover" style={styles.image}>        
         <View style={styles.top}>
           <Text style={styles.fontWhite}>Hey, mừng bạn đến với</Text>
-          <h1>Pepsi Tết</h1>
+          <Text style={styles.fontWhite2}>Pepsi Tết</Text>  
         </View>
 
-        <View style={styles.middle}>
-          <h1 style={{ fontSize: 25, textAlign: "center" }}>ĐĂNG KÝ</h1>
-          <TextInput  style={styles.input}  placeholder="Số điện thoại"  placeholderTextColor="black"/>
+        <View style={styles.middle}>          
+          <Text style={styles.fontWhite2}>ĐĂNG KÝ</Text>
+          <TextInput  style={styles.input}   placeholder="Số điện thoại"  placeholderTextColor="black"/>
           
           <TextInput style={styles.input}  placeholder="Tên người dùng"  placeholderTextColor="black"/>           
           {/* checkbox */}
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     flex: 0.1,
     justifyContent: "center",
     // borderWidth: 3,
-    textAlign: "center",
+    
     color: "white",
   },
 
@@ -115,12 +115,21 @@ const styles = StyleSheet.create({
   },
   imageButton: {
     justifyContent: "center",
-    width: 190,
-    height: 45,
+    width: 230,
+    height: 50,
     // borderWidth: 5,
   },
   fontWhite: {
     color: "white",
+    textAlign: "center",
+    fontSize:17,
+  },
+  fontWhite2: {
+    color: "white",
+    textAlign: "center",
+    fontSize:30,
+    fontWeight:'bold',
+    marginTop:5,
   },
   // checkbox
   section: {
@@ -129,7 +138,7 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
   },
   paragraph: {
-    fontSize: 11.37,
+    fontSize: 14,
     // borderWidth: 2,
     color: "white",
     

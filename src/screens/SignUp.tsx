@@ -25,15 +25,16 @@ const SignUp = (props) => {
       <ImageBackground
         source={require("../../assets/bg.png")}
         resizeMode="cover"
-        style={styles.image}
-      >
+        style={styles.image}>
+      
         <View style={styles.top}>
         <Text style={styles.fontWhite}>Hey, mừng bạn đến với</Text>
-          <h1>Pepsi Tết</h1>
+        <Text style={styles.fontWhite2}>Pepsi Tết</Text> 
         </View>
+        
 
         <View style={styles.middle}>
-          <h1 style={{ fontSize: 25, textAlign: "center" }}>ĐĂNG NHẬP</h1>
+          <Text style={styles.fontWhite2}>ĐĂNG NHẬP</Text>
           <TextInput
             style={styles.input}
             placeholder="Số điện thoại"
@@ -45,7 +46,7 @@ const SignUp = (props) => {
         </View>
 
         <View style={styles.bottom}>
-        {" "}
+        
           <TouchableOpacity style={styles.touchable}>
             <ImageBackground
                source={require("../../assets/button1.png")}
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   top: {
-    flex: 0.1,
+    flex: 0.3,
     justifyContent: "center",
     // borderWidth: 3,
     textAlign: "center",
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   },
 
   middle: {
-    flex: 0.45,
+    flex: 0.3,
     justifyContent: "center",
     // borderWidth: 3,
     textAlign: "center",
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
   },
 
   bottom: {
-    flex: 0.2,
+    flex: 0.3,
     justifyContent: "center",
     // borderWidth: 3,
     textAlign: "center",
@@ -146,17 +147,26 @@ touchable: {
   },
   imageButton: {
     justifyContent: "center",
-    width: 190,
-    height: 45,
+    width: 230,
+    height: 50,
     // borderWidth: 5,
   },
   fontWhite:{
     color: "white",
+    textAlign: "center",
+    fontSize:17,
+  },
+  fontWhite2: {
+    color: "white",
+    textAlign: "center",
+    fontSize:30,
+    fontWeight:'bold',
+    marginTop:5,
   },
   img: {
     width: 130,
     height: 130,
-    marginLeft: 95,
+    marginLeft: 130,
     
     
     }
