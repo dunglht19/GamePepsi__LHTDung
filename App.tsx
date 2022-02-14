@@ -6,12 +6,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SignIn from "./src/screens/SignIn";
 import SignUp from "./src/screens/SignUp";
 import PageMain from "./src/screens/PageMain";
+import PageGame from "./src/screens/PageGame";
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           options={{ headerShown: false }}
           component={SignIn}
           name="SignIn"
@@ -20,11 +21,16 @@ export default function App() {
           options={{ headerShown: false }}
           component={SignUp}
           name="SignUp"
-        />
+        /> */}
          <Stack.Screen
           options={{ headerShown: false }}
           component={PageMain}
           name="PageMain"
+        />
+         <Stack.Screen
+          options={{ headerShown: false }}
+          component={PageGame}
+          name="PageGame"
         />
       </Stack.Navigator>
       <StatusBar hidden />

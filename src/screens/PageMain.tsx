@@ -24,6 +24,9 @@ const PageMain = (props) => {
   const onSignIn = () => {
     navigation.navigate("SignIn");
   };
+  const onGamee = () => {
+    navigation.navigate("PageGame");
+  };
 
   //  const onSignIn=()=>{
   //           navigation.navigate('SignIn');
@@ -121,11 +124,12 @@ const PageMain = (props) => {
                   BẠN CÓ MUỐN SỬ DỤNG LƯỢT CHƠI NÀO?
                 </Text>
 
-                <TouchableOpacity >                  
+                {/* <TouchableOpacity >                  
                   <ImageBackground
                     source={require("../../assets/red_button1.png")}
                     resizeMode="cover"
                     style={{ justifyContent: "center", width: 200, height: 60 }}
+                    onPress={onSignIn}
                   >
                     <Text style={styles.title_Modal}>Lượt chơi miễn phí</Text>
                     <Text style={styles.intitle_Modal}>
@@ -133,21 +137,31 @@ const PageMain = (props) => {
                       chơi
                     </Text>
                   </ImageBackground>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
-                <TouchableOpacity>                                  
-                  <ImageBackground
-                    source={require("../../assets/red_button1.png")}
-                    resizeMode="cover"
-                    style={{ justifyContent: "center", width: 200, height: 60 }}
-                  >
-                    <Text style={styles.title_Modal}>Lượt chơi quy đổi</Text>
+                <Pressable 
+                style={{ 
+                  justifyContent: "center", 
+                  width: 190, 
+                  height: 50,
+                  backgroundColor:'#D02027',
+                  borderRadius:10,
+                  marginBottom:10}} 
+                  onPress={onGamee}>
+                <Text style={styles.title_Modal}>Lượt chơi miễn phí</Text>
                     <Text style={styles.intitle_Modal}>
                       Bạn còn <Text style={{ color: "yellow" }}>0</Text> lượt
                       chơi
                     </Text>
-                  </ImageBackground>
-                </TouchableOpacity>
+                </Pressable>
+
+                <Pressable style={{ justifyContent: "center", width: 190, height: 50,backgroundColor:'#D02027',borderRadius:10 }}>
+                <Text style={styles.title_Modal}>Lượt chơi quy đổi</Text>
+                    <Text style={styles.intitle_Modal}>
+                      Bạn còn <Text style={{ color: "yellow" }}>0</Text> lượt
+                      chơi
+                    </Text>
+                </Pressable>
               </View>
             </View>
           </Modal>
